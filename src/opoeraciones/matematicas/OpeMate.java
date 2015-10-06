@@ -9,7 +9,7 @@ package opoeraciones.matematicas;
  *
  * @author RicardoMaldonadoCastro
  */
-import java.util.Scanner;
+import java.util.Scanner; //se importa scanner
 
 public class OpeMate 
 {
@@ -67,33 +67,33 @@ public class OpeMate
        int operacion =  mostrar.nextInt(); //se crea una variable q sea igual al 
                                           // scanner para comparando enteros en el switch
        
-        System.out.println("Su primer numero es:");
+        System.out.println("Ingrese el primer numero es:");
         int entrada1 = mostrar.nextInt(); //ingresa el primer numero mediante scanner
         
-        System.out.println("Su segundo numero es:");
+        System.out.println("Ingrese el segundo numero es:");
         int entrada2 = mostrar.nextInt(); //ingresa el segundo numero mediante scanner
         
         
        switch(operacion)//se ingresa la variable que creamos 
        {
            case 1: 
-             System.out.println("El total es:" + oM.sumar(entrada1,entrada2));
+             System.out.println("El total es: " + oM.sumar(entrada1,entrada2));
             break;
                
            case 2: 
-              System.out.println("El total es:" + oM.restar(entrada1,entrada2));
+              System.out.println("El total es: " + oM.restar(entrada1,entrada2));
             break;
            
            case 3: 
-              System.out.println("El total es:" + oM.multiplicar(entrada1,entrada2));
+              System.out.println("El total es: " + oM.multiplicar(entrada1,entrada2));
             break;
                
            case 4: 
-              System.out.println("El total es:" + oM.dividir(entrada1,entrada2));
+              System.out.println("El total es: " + oM.dividir(entrada1,entrada2));
             break; 
                
            case 5: 
-              System.out.println("El total es:" + oM.modulo(entrada1,entrada2));
+              System.out.println("El total es: " + oM.modulo(entrada1,entrada2));
             break;    
        }
        
