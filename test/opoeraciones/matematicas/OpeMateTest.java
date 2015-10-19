@@ -28,9 +28,9 @@ public class OpeMateTest
         int entrada1 = 5;
         int entrada2 = 10;
         int resultado = entrada1 + entrada2;
-        assertEquals(resultado-10,opeMat.sumar(entrada1, entrada2));
+        assertEquals(resultado-5,opeMat.sumar(entrada1, entrada2));
     }
-
+    
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //

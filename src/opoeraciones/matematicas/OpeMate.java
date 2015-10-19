@@ -8,6 +8,7 @@ package opoeraciones.matematicas;
 /**
  * @RicardoMaldonadoCastro
  */
+import java.util.InputMismatchException; 
 import java.util.Scanner; //se importa scanner
 
 public class OpeMate
@@ -40,19 +41,27 @@ public class OpeMate
     {
         return a % b;
     }
+    
     public int porcentaje(int a , int b)
     {
         return (a*b)/100;
     }
+    
     public int exponente(int a, int b )
     {
-        int resul = a;
-        for(int i=0; i<=b; i++)
+        int c = 0;
+        int s = 1;
+        while(c < b)
         {
- 
-        	resul *= a;
+            c = c+1;
+            s = s*a;    
         }
-        return resul ;
+        return s;
+    }
+    
+    public int fraccion(int a, int b)
+    {
+        return 0;
     }
 
     private void mostrarMenu()
@@ -66,7 +75,7 @@ public class OpeMate
         System.out.println(" 6.- Porcentaje");
         System.out.println(" 7.- Exponente");
         System.out.println(" 8.- Fraccion");
-        System.out.println(" 9.- salir del menu");
+        System.out.println(" 0.- salir del menu");
         System.out.println(" Introdusca el numero de la operacion matematica que decea realizar");
     }
 
@@ -75,7 +84,7 @@ public class OpeMate
      */
     public static void main(String[] args) 
     {
-        int operacion = 0;
+        int operacion;
         do {
 
             OpeMate oM = new OpeMate(); //se crea el objeto operacion matematica oM
@@ -85,19 +94,26 @@ public class OpeMate
             System.out.println();
             operacion = mostrar.nextInt();
 
-            if (operacion != 9) 
+            if (operacion != 0) 
             {
-                System.out.println("Ingrese el primer numero es:");
+                System.out.println("Ingrese el primer numero: ");
                 int entrada1 = mostrar.nextInt(); //ingresa el primer numero mediante scanner
 
-                System.out.println("Ingrese el segundo numero es:");
+                System.out.println("Ingrese el segundo numero: ");
                 int entrada2 = mostrar.nextInt(); 
 
                 switch (operacion)//se ingresa la variable que creamos 
                 {
                     case 1:
+                        try
+                        {
                         System.out.println("El total es: " + oM.sumar(entrada1, entrada2));
                         System.out.println();
+                        }
+                        catch(InputMismatchException error)
+                        {
+                            System.out.println("Solo se permite numeros " + error);
+                        }
                         break;
 
                     case 2:
@@ -127,9 +143,15 @@ public class OpeMate
                         
                     case 7:
                         System.out.println("El total es: " + oM.exponente(entrada2, entrada2));
+                        System.out.println();
+                        break;
+                    case 8:
+                        System.out.println("El total es: " + oM.fraccion(entrada2, entrada2));
+                        System.out.println();
+                        break;
                 }
             }
-        } while (operacion != 9);
+        } while (operacion != 0);
 
         System.out.println("Gracias por utilizar el programa");
 
