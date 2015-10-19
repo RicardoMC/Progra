@@ -35,6 +35,7 @@ public class OpeMate
     public int dividir(int a, int b)
     {
         return a / b;
+        
     }
 
     public int modulo(int a, int b)
@@ -42,26 +43,19 @@ public class OpeMate
         return a % b;
     }
     
-    public int porcentaje(int a , int b)
+    public double porcentaje(double a , double b)
     {
-        return (a*b)/100;
+        return  (a/100)*b;
     }
     
     public int exponente(int a, int b )
     {
-        int c = 0;
-        int s = 1;
-        while(c < b)
-        {
-            c = c+1;
-            s = s*a;    
-        }
-        return s;
+        return (int) Math.pow(a,b);
     }
     
-    public int fraccion(int a, int b)
+    public int raiz(int a, int b)
     {
-        return 0;
+        return (int) Math.sqrt(a);
     }
 
     private void mostrarMenu()
@@ -107,8 +101,8 @@ public class OpeMate
                     case 1:
                         try
                         {
-                        System.out.println("El total es: " + oM.sumar(entrada1, entrada2));
-                        System.out.println();
+                            System.out.println("El total es: " + oM.sumar(entrada1, entrada2));
+                            System.out.println();
                         }
                         catch(InputMismatchException error)
                         {
@@ -127,8 +121,15 @@ public class OpeMate
                         break;
 
                     case 4:
-                        System.out.println("El total es: " + oM.dividir(entrada1, entrada2));
-                        System.out.println();
+                        try
+                        {
+                             System.out.println("El total es: " + oM.dividir(entrada1, entrada2));
+                             System.out.println();
+                        }
+                        catch(ArithmeticException zero)
+                        {
+                            System.out.println("no se puede dividir entre cero " + zero);
+                        }
                         break;
 
                     case 5:
@@ -146,7 +147,7 @@ public class OpeMate
                         System.out.println();
                         break;
                     case 8:
-                        System.out.println("El total es: " + oM.fraccion(entrada2, entrada2));
+                        System.out.println("El total es: " + oM.raiz(entrada2, entrada2));
                         System.out.println();
                         break;
                 }
