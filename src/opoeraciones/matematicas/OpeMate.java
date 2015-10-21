@@ -6,9 +6,9 @@
 package opoeraciones.matematicas;
 
 /**
- * @RicardoMaldonadoCastro
+ * @author RicardoMaldonadoCastro
  */
-import java.util.InputMismatchException; 
+import java.util.InputMismatchException;
 import java.util.Scanner; //se importa scanner
 
 public class OpeMate
@@ -17,7 +17,7 @@ public class OpeMate
     int entrada1;
     int entrada2;
 
-    public int sumar(int a, int b) 
+    public double sumar(double a, double b) 
     {
         return a + b;
     }
@@ -68,7 +68,7 @@ public class OpeMate
         System.out.println(" 5.- Modulo");
         System.out.println(" 6.- Porcentaje");
         System.out.println(" 7.- Exponente");
-        System.out.println(" 8.- Fraccion");
+        System.out.println(" 8.- Raiz");
         System.out.println(" 0.- salir del menu");
         System.out.println(" Introdusca el numero de la operacion matematica que decea realizar");
     }
@@ -95,19 +95,12 @@ public class OpeMate
 
                 System.out.println("Ingrese el segundo numero: ");
                 int entrada2 = mostrar.nextInt(); 
-
+                
                 switch (operacion)//se ingresa la variable que creamos 
                 {
                     case 1:
-                        try
-                        {
-                            System.out.println("El total es: " + oM.sumar(entrada1, entrada2));
-                            System.out.println();
-                        }
-                        catch(InputMismatchException error)
-                        {
-                            System.out.println("Solo se permite numeros " + error);
-                        }
+                        System.out.println("El total es: " + oM.sumar(entrada1, entrada2));
+                        System.out.println();
                         break;
 
                     case 2:
@@ -121,15 +114,8 @@ public class OpeMate
                         break;
 
                     case 4:
-                        try
-                        {
-                             System.out.println("El total es: " + oM.dividir(entrada1, entrada2));
-                             System.out.println();
-                        }
-                        catch(ArithmeticException zero)
-                        {
-                            System.out.println("no se puede dividir entre cero " + zero);
-                        }
+                        System.out.println("El total es: " + oM.dividir(entrada1, entrada2));
+                        System.out.println();
                         break;
 
                     case 5:
@@ -146,6 +132,7 @@ public class OpeMate
                         System.out.println("El total es: " + oM.exponente(entrada2, entrada2));
                         System.out.println();
                         break;
+                        
                     case 8:
                         System.out.println("El total es: " + oM.raiz(entrada2, entrada2));
                         System.out.println();
